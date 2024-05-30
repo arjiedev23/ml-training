@@ -4,8 +4,8 @@
  * @return {boolean} True if the number is even, false if it is odd.
  */
 
-function CheckOddEven(number){
-    if(number % 2 == 0){
+function CheckOddEven(num){
+    if(num % 2 == 0){
         return true;
     }else{
         return false;
