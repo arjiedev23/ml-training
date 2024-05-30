@@ -6,8 +6,8 @@
  * @param {number} n The number to print.
  */
 
-function FizzBuzz(number){
-    for (var i = 1; i <= number; i++) {
+function FizzBuzz(n){
+    for (var i = 1; i <= n; i++) {
         if (i % 3 == 0 && i % 5 == 0) {
             console.log("FizzBuzz");
         } else if (i % 3 == 0) {
