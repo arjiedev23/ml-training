@@ -9,6 +9,8 @@ function activity(num1, num2){
     try {
         if (num2 === 0) {
             throw new Error("Num2 is 0");
+        } else { 
+            return "Num2 is not 0";
         }
     } catch (err) {
         return err.message;
