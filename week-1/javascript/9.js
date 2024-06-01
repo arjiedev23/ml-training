@@ -3,3 +3,23 @@
  * @param {number} num The number to check.
  * @throws {Error} If the number is not a positive integer.
  */
+
+function CheckNumber(num){
+    try {
+        if (typeof num != "number") {
+            throw new Error(`${num} is not an number.`);
+        } else {
+            if(num < 0){
+                throw new Error(`${num} is not an positive.`);
+            } else if (num === 0) {
+                return `${num} is neither positive nor negative.`
+            } else {
+                return `${num} is an positive.`
+            }   
+        }
+    } catch(ex) {
+        return ex.message;
+    }
+}
+
+console.log(CheckNumber("1"));
