@@ -15,10 +15,28 @@
  * @return {number} The average marks of the students.
  */
 
-const students = [
+const Students = [
   { name: "John", mark: 90 },
   { name: "Jane", mark: 85 },
   { name: "Joe", mark: 95 },
   { name: "Tom", mark: 65 },
   { name: "Nancy", mark: 75 },
 ];
+
+function ComputeAverages () {
+  for (var i = 0; i < Students.length; i++) {
+    if (Students[i].mark < 60) {
+      console.log(Students[i].name + " " + Students[i].mark + " - E" );
+    } else if (Students[i].mark >= 60 && Students[i].mark < 70) {
+      console.log(Students[i].name + " " + Students[i].mark + " - D" );
+    } else if (Students[i].mark >= 70 && Students[i].mark < 80) {
+      console.log(Students[i].name + " " + Students[i].mark + " - C" );
+    } else if (Students[i].mark >= 80 && Students[i].mark < 90) {
+      console.log(Students[i].name + " " + Students[i].mark + " - B" );
+    } else if (Students[i].mark >= 90) {
+      console.log(Students[i].name + " " + Students[i].mark + " - A" );
+    }
+  }
+}
+
+ComputeAverages();
