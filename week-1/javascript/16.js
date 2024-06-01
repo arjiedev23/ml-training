@@ -22,3 +22,22 @@ const students = [
   { name: "Tom", mark: 65 },
   { name: "Nancy", mark: 75 },
 ];
+
+function ComputeAverage () {
+  let studdMark = 0;
+  for (var i = 0; i < students.length; i++) {
+    if (students[i].mark < 60) {
+      console.log(students[i].name + " " + students[i].mark + " - E" );
+    } else if (students[i].mark >= 60 && students[i].mark < 70) {
+      console.log(students[i].name + " " + students[i].mark + " - D" );
+    } else if (students[i].mark >= 70 && students[i].mark < 80) {
+      console.log(students[i].name + " " + students[i].mark + " - C" );
+    } else if (students[i].mark >= 80 && students[i].mark < 90) {
+      console.log(students[i].name + " " + students[i].mark + " - B" );
+    } else if (students[i].mark >= 90) {
+      console.log(students[i].name + " " + students[i].mark + " - A" );
+    }
+  }
+}
+
+ComputeAverage();
