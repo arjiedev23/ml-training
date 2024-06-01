@@ -19,3 +19,30 @@
  * @param {string} password
  * @returns {string}
  */
+function hasUpperCase(str) {
+    return str !== str.toLowerCase();
+}
+
+function hasLowerCase(str) {
+    return str.toUpperCase() != str;
+}
+
+function ValidatePassword (password) {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    const numberChars = /\d/;
+    if (password.length <= 8) {
+        return "Password must be at least 8 characters long";
+    } else if (!hasUpperCase(password)) {
+        return "Password must contain at least one uppercase letter";
+    } else if (!hasLowerCase(password)) {
+        return "Password must contain at least one lowercase letter";
+    } else if (!numberChars.test(password)) {
+        return "Password must contain at least one number";
+    } else if (!specialChars.test(password)) {
+        return "Password must contain at least one special character";
+    } else {
+        return "Password is valid";
+    }
+}
+
+console.log(ValidatePassword("sssssS123@"));
