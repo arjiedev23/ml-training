@@ -6,3 +6,15 @@
  * Example string: "The quick brown fox jumps over the lazy dog"
  * Expected output: "The Quick Brown Fox Jumps Over The Lazy Dog"
  */
+
+let sentence = "The quick brown fox jumps over the lazy dog";
+
+function ConvertFirst (str) {
+    var arrStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < arrStr.length; i++) {
+        arrStr[i] = arrStr[i].charAt(0).toUpperCase() + arrStr[i].substring(1);
+    }
+    return arrStr.join(' ');
+}
+
+console.log(ConvertFirst(sentence));
