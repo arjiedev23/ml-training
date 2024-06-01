@@ -9,3 +9,15 @@
  * @param {number[]} arr2
  * @returns {number[]}
  */
+
+var array1 = [1, 2, 3];
+var array2 = [2, 3, 4, 5];
+
+function mergeArr (arr1, arr2) {
+    var merge = arr1.concat(arr2)
+    var res = merge.filter((item, pos) => merge.indexOf(item) === pos);
+
+    return res;
+}
+
+console.log(mergeArr(array1, array2));
