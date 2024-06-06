@@ -19,6 +19,7 @@ function ConvertEntities(str) {
     for (var entity in entities) {
       if(str[i].indexOf(entity) >= 0) { 
         var result = str[i].replaceAll(entity, entities[entity])
+        console.log(entities[entity]);
         res += result
       } 
     }

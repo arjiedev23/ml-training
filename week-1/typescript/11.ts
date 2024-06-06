@@ -5,10 +5,25 @@
  */
 
 // ENTITY OBJECT
-const entities = {
+const Entities = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
   '"': "&quot;",
   "'": "&apos;",
 };
+
+function ConvertEntity(str : string) : any {
+  let res = "";
+  for (var i = 0; i < str.length; i++) { 
+    for (var entity in Entities) {
+      if(str[i].indexOf(entity) >= 0) { 
+        var result = <any> str[i].replace(entity, Entities[entity])
+        res += result
+      } 
+    }
+  }
+  return res;
+}
+
+console.log(ConvertEntity(`&<>"'`));
