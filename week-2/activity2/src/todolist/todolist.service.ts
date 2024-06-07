@@ -11,13 +11,7 @@ export class TodolistService {
     })
   }
 
-  async findAll(status?: true | false) {
-    if(status != null) return this.prismaService.todoList.findMany({
-      where: {
-        status,
-      }
-    });
-
+  async findAll() {
     return this.prismaService.todoList.findMany();
   }
 

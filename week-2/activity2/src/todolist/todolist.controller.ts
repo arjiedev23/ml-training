@@ -1,19 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { TodolistService } from './todolist.service';
-import { Prisma } from '@prisma/client';
+import { CreateTodolistDto } from './dto/create-todolist.dto';
+import { UpdateTodolistDto } from './dto/update-todolist.dto';
 
 @Controller('todolist')
 export class TodolistController {
   constructor(private readonly todolistService: TodolistService) {}
 
   @Post()
-  create(@Body() createTodolistDto: Prisma.TodoListCreateInput) {
+  create(@Body() createTodolistDto: CreateTodolistDto) {
     return this.todolistService.create(createTodolistDto);
   }
 
   @Get()
-  findAll(@Query('status') status?: true | false) {
-    return this.todolistService.findAll(status);
+  findAll() {
+    return this.todolistService.findAll();
   }
 
   @Get(':id')
@@ -22,7 +23,7 @@ export class TodolistController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTodolistDto: Prisma.TodoListUpdateInput) {
+  update(@Param('id') id: string, @Body() updateTodolistDto: UpdateTodolistDto) {
     return this.todolistService.update(+id, updateTodolistDto);
   }
 
