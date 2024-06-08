@@ -11,12 +11,7 @@ export class HabitTrackerController {
   create(@Body() createHabitTrackerDto: CreateHabitTrackerDto) {
     return this.habitTrackerService.create(createHabitTrackerDto);
   }
-
-  @Post('addUser')
-  createUser(@Body() createHabitTrackerDto: CreateHabitTrackerDto) {
-    return this.habitTrackerService.create(createHabitTrackerDto);
-  }
-
+  
   @Get()
   findAll() {
     return this.habitTrackerService.findAll();

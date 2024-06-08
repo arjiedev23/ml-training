@@ -10,13 +10,7 @@ export class HabitTrackerService {
       data: createHabitTrackerDto
     })
   }
-
-  async createUser(HabitUserCreateInput: Prisma.HabitUserCreateInput) {
-    return this.prismaService.habitUser.create({
-      data: HabitUserCreateInput,
-    })
-  }
-
+  
   async findAll() {
     return this.prismaService.habitTracker.findMany();
   }

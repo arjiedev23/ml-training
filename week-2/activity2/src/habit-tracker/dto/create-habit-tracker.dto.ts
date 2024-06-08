@@ -7,9 +7,3 @@ export class CreateHabitTrackerDto {
     createdAt: Date;
 }
 
-export class CreateHabitUserDto {
-    user: string;
-    userAdd: string;
-    mobile: string;
-}
-

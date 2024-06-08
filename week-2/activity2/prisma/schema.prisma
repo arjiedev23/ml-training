@@ -49,9 +49,26 @@ model HabitTracker {
   createdAt     DateTime    @default(now())
 }
 
-model HabitUser {
+model User {
   id          Int         @id @default(autoincrement())
   user        String    
   userAdd     String
   mobile      String
 }
+
+model Book {
+  id          Int       @id @default(autoincrement())
+  bookTitle   String
+  authorName  String
+  createAt    DateTime  @default(now())
+}
+
+model BookLending {
+  id          Int       @id @default(autoincrement())
+  borrowDate  DateTime  
+  returnDate  DateTime?
+  bookID      Int
+  dueDate     DateTime
+  createdAt   DateTime  @default(now())
+}
+
