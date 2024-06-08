@@ -6,4 +6,5 @@ export class CreateProductInventoryDto {
     Type: string;
     CreatedAt: Date;
     QTY: number;
+    TrackLevel: string;
 }

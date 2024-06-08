@@ -7,7 +7,14 @@ export class ProductInventoryService {
   constructor (private readonly prismaService: PrismaService){}
   async create(createProductInventoryDto: Prisma.ProductCreateInput) {
     return this.prismaService.product.create({
-      data: createProductInventoryDto
+      data: {
+        ProductName: createProductInventoryDto.ProductName,
+        ProductDesc: createProductInventoryDto.ProductDesc,
+        Price: createProductInventoryDto.Price,
+        Type: createProductInventoryDto.Type,
+        QTY: createProductInventoryDto.QTY,
+        TrackLevel: ""
+      }
     })
   }
 
@@ -16,9 +23,19 @@ export class ProductInventoryService {
     const datas = this.prismaService.product.findMany();
 
     (await datas).forEach(function (val) {
-      val.TrackLevel = (val.QTY <= 15) ? "Low Stock Level" : (val.QTY <= 50)? "Optimal Level": (val.QTY <= 150)? "Maximum Level": "Excess Level";
+      if(val.QTY == 0){
+        val.TrackLevel = "No Stock";
+      } else if (val.QTY <= 15) {
+        val.TrackLevel = "Low Stock Level";
+      } else if (val.QTY <= 50) {
+        val.TrackLevel = "Optimal Level";
+      } else if (val.QTY <= 150) {
+        val.TrackLevel = "Maximum Level";
+      } else {
+        val.TrackLevel = "Excess Level";
+      }
     })
-    
+
     return datas;
   }
 
