@@ -30,12 +30,28 @@ model ContactList {
 }
 
 model Product {
-  ProductID     Int       @id @default(autoincrement())
+  ProductID     Int         @id @default(autoincrement())
   ProductName   String    
   ProductDesc   String?
-  Price         Int       @default(0)
+  Price         Int         @default(0)
   Type          String?
-  CreatedAt     DateTime  @default(now())
-  QTY           Int?       @default(0)
+  CreatedAt     DateTime    @default(now())
+  QTY           Int?        @default(0)
   TrackLevel    String?
+}
+
+model HabitTracker {
+  id            Int         @id @default(autoincrement())
+  goalTitle     String  
+  goalDesc      String
+  UserID        Int
+  goalProgress  Int         @default(0)
+  createdAt     DateTime    @default(now())
+}
+
+model HabitUser {
+  id          Int         @id @default(autoincrement())
+  user        String    
+  userAdd     String
+  mobile      String
 }
