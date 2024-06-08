@@ -28,3 +28,14 @@ model ContactList {
   emailAdd          String?
   address           String?
 }
+
+model Product {
+  ProductID     Int       @id @default(autoincrement())
+  ProductName   String    
+  ProductDesc   String?
+  Price         Int       @default(0)
+  Type          String?
+  CreatedAt     DateTime  @default(now())
+  QTY           Int?       @default(0)
+  TrackLevel    String?
+}
